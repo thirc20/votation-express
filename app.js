@@ -2,7 +2,7 @@ const express = require('express')
 const { JacadService, teste, findStudent } = require('./src/jacad/jacad');
 const { voto } = require('./src/voto/voto');
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 const db = require('./db')
 // import { findStudent } from "jacad";
 
