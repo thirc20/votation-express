@@ -156,19 +156,17 @@ main > hr{
         margin-top: auto;
     }
     #title > h2{
-        font-size: 13pt;
+        font-size: 11pt;
         position: fixed;
         top: 0;
-        margin-top: 70px;
+        margin-top: 30px;
         margin-left: -140px;
-        font-family: 'Kenyan Coffee', sans-serif;
     }
     #title > h1{
-        font-size: 36.1px;
+        font-size: 19.1px;
         position: fixed;
-        margin-top: -120px;
+        margin-top: -69px;
         margin-left: -140.3px;
-        font-family: 'Kenyan Coffee', sans-serif;
     }
 
     main{
