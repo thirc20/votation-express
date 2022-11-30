@@ -1,0 +1,14 @@
+{
+    "configurations": [{
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "name": "Debug Express",
+      "program": "${workspaceFolder}/app.js",
+      "request": "launch",
+      "restart": true,
+      "runtimeExecutable": "node",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    }]
+  }

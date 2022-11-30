@@ -1,0 +1,194 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votation</title>
+    <link rel="shortcut icon" href="./img/fadesa.png" type="image/x-icon">
+
+    <!-- css BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- LINK CSS -->
+    <link rel="stylesheet" href="./CSS/votation.css">
+    <link rel="stylesheet" href="./CSS/votationMobile.css">
+
+    <!-- LINK FONTE -->
+    <link href="https://fonts.cdnfonts.com/css/kenyan-coffee-2" rel="stylesheet">
+</head>
+
+<body>
+    <header id="cabecalho">
+        <div><img src="./img/fadesa.png" width="100"></div>
+        <div id="title">
+            <h2>FACULDADE PARA O DESENVOLVIMENTO SUSTENTÁVEL DA AMAZONIA</h2>
+            <br>
+            <h1>ESCOLHA O MELHOR PROFESSOR</h1>
+        </div>
+    </header>
+
+    <main>
+        <h3>BEM VINDO ALUNO!</h3>
+
+        <label class="text"><label style="color: red;">*</label>DIGITE SEU NOME</label>
+        <input type="text" class="text form-control" id="NOME_ALUNO" placeholder="Digite Aqui Seu Nome">
+
+        <label class="text"><label style="color: red;">*</label>DIGITE SEU RA</label>
+        <input type="text" class="text form-control" id="RA_ALUNO" placeholder="Digite Aqui Seu RA">
+
+        <label class="text "><label style="color: red;">*</label>SELECIONE SEU CURSO</label>
+        <div id="cursosSelecao" class="text">
+            <input type="radio" class="cursos" name="cursoDoAluno" value="ADMINISTRAÇÃO">
+            <label>ADMINISTRAÇÃO</label>
+            <input type="radio" class="cursos" name="cursoDoAluno" value="ANALISE E DESENVOLVIMENTO DE SISTEMAS">
+            <label>ANALISE E DESENVOLVIMENTO DE SISTEMAS</label>
+            <input type="radio" class="cursos" name="cursoDoAluno" value="CIÊNCIAS CONTÁBEIS">
+            <label>CIÊNCIAS CONTÁBEIS</label>
+            <input type="radio" class="cursos" name="cursoDoAluno" value="EDUCAÇÃO FÍSICA">
+            <label>EDUCAÇÃO FÍSICA</label>
+            <input type="radio" class="cursos" name="cursoDoAluno" value="ENFERMAGEM">
+            <label>ENFERMAGEM</label>
+            <input type="radio" class="cursos" name="cursoDoAluno" value="DIREITO">
+            <label>DIREITO</label>
+            <input type="radio" class="cursos" name="cursoDoAluno" value="PEDAGOGIA">
+            <label>PEDAGOGIA</label>
+            <input type="radio" class="cursos" name="cursoDoAluno" value="PSICOLOGIA">
+            <label>PSICOLOGIA</label>
+            <input type="radio" class="cursos" name="cursoDoAluno" value="NUTRIÇAO">
+            <label>NUTRIÇAO</label>
+            <input type="radio" class="cursos" name="cursoDoAluno" value="ODONTOLOGIA">
+            <label>ODONTOLOGIA</label>
+        </div>
+
+        <hr class="text">
+
+        <label class="text"><label style="color: red;">*</label>SELECIONE O PROFESSOR</label></label>
+        <select class="text form-select form-select-sm" aria-label=".form-select-sm example" id="select">
+            <option selected="">Selecione Uma Opção</option>
+        </select>
+
+
+        <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Voto Validado Com Sucesso!!!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <center><button class="text btn-confirmar btn-outline-light" onclick="votar()">CONFIRMAR</button></center>
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal" style="display: none;" id="btnModal">
+            Launch demo modal
+        </button>
+    </main>
+
+    <!-- Script BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let modal = document.querySelector('#modal')
+        let radio = document.querySelectorAll('.cursos')
+        let radioSelect
+        let prof = [
+            ["ADMINISTRAÇÃO", 'Mateus da Silva Sousa ', 'Sara Debora Carvalho Cerqueira', 'Ducilene Melo Da Silva', 'Jefferson Cardoso Van De Graff', 'Lucimara Fonseca De Jesus Almeida', 'Ende Machado Silva', 'Juliana Silvia Siqueira Viana', 'Isabella Coroline De Souza e Silva', 'Adriano Louzada Bollas'],
+            
+            ["ANALISE E DESENVOLVIMENTO DE SISTEMAS", 'Glorisnaldo Rosa', 'Adriano Louzada Bollas', 'Kenedy Martins Miné', 'dasd', 'Cleuciana Barbosa Martins', 'Ende Machado Silva'],
+
+            ["CIÊNCIAS CONTÁBEIS", 'Mateus da Silva Sousa ', 'Sara Debora Carvalho Cerqueira', 'Ducilene Melo Da Silva', 'Jefferson Cardoso Van De Graff', 'Lucimara Fonseca De Jesus Almeida', 'Ende Machado Silva', 'Felipe Felix Silva', 'Juliana Silvia Siqueira Viana', 'Isabella Coroline De Souza e Silva', 'Adriano Louzada Bollas'],
+
+            ["EDUCAÇÃO FÍSICA", 'Cledson Nascimento Santa Brigida', 'Edilberto Serpa Dos Santos', 'Juliana Maria Silva de Oliveira', 'Marcus Vinicius Moura de Souza', 'Cleuciana Barbosa Martins'],
+
+            ["ENFERMAGEM", 'Ademar de Sousa Alencar Junior', 'Bruno antunes cardoso', 'Ceynna Leal Nunes Nascimento', 'Évila Ellen Sá De Moraes Matias', 'Fabiana Rocha Jorge', 'Fabricio Bezerra', 'Jaciane  De Souza Nascimento', 'Jackson  Luís Ferreira Cantão', 'Mariana De Araujo Rocha', 'Oneida Ramos Gonçalves Saorin', 'Rafaela Pereira Gomes', 'Victor Mateus Pinheiro Fernandes', 'João Luiz Sousa Cardoso', 'Anonio Rhamon da Silva','Andreza Paloma Goes','Ducilene Melo Da Silva', 'Matheus Jeruel Fernandes Catão'],
+
+            ["DIREITO", 'Ana Chrystinne Souza Lima', 'Ana Claudia Gomes de Souza', 'Daniel Cervantes Angulo Vilarinho', 'Ende Machado Silva','Fernanda Lopes Rodrigues', 'Hugo Leonardo Da Cunha Neto', 'Isabella Coroline De Souza e Silva', 'Isac Rodrigues  Ferreira', 'Luiz Henrique Milare de Carvalho', 'Matheus Jeruel Fernandes Catão', 'Roger Rodrigues Lippi', 'Rogério Siqueira dso Santos', 'Flávia Pereira Gomes', 'Wyderllanya Costa', 'Dionis Soares de Sousa', 'Kenedy Martins Miné'],
+
+            ["PEDAGOGIA", 'Cleuciana Barbosa Martins', 'Kenedy Martins Miné', 'Claudio Porpino Henriques Filho'],
+
+            ["PSICOLOGIA", 'Claudio Porpino Henriques Filho', 'Daniela Dos Santos Américo', 'Dionis Soares de Sousa', 'Milena Vieira Sousa', 'João Luiz Sousa Cardoso', 'Andreza Paloma Goes', 'Anonio Rhamon da Silva', 'Ludmilla Mendes Da Silva', 'Flávia Pereira Gomes'],
+
+            ["NUTRIÇAO", 'Ather Barbosa Figueredo', 'Elisangela Cristina Martins Da Silva', 'Francisca Neide Sousa da Costa', 'Maiza Nonato Dos Santos', 'Nadya Cristina Sousa Cruz', 'Ducilene Melo Da Silva', 'Oneida Ramos Gonçalves Saorin', 'João Luiz Sousa Cardoso', 'Victor Mateus Pinheiro Fernandes'],
+            
+            ["ODONTOLOGIA", 'Aline Silva dos Santos', 'Cintia Silva Torres Netto', 'Gabriela Fernanda Miranda de Sousa', 'Willian Araujo De Oliveira', 'Wyderllanya Costa'],
+
+        ]
+        let sel = document.querySelector('#select')
+
+        for (let i = 0; i < radio.length; i++) {
+            radio[i].addEventListener('click', () => {
+                for (let i = 0; i < radio.length; i++) {
+                    if (radio[i].checked) {
+                        radioSelect = radio[i]
+                    }
+                }
+                let val = radioSelect.value
+
+                sel.innerHTML = `<option selected="">Selecione Uma Opção</option>`
+
+                for (let i = 0; i < prof.length; i++) {
+                    let p = 1
+                    if (prof[i][0] == val) {
+                        while (p < prof[i].length) {
+                            let element = prof[i][p]
+                            let opt = document.createElement('option')
+
+                            opt.innerHTML = element
+                            sel.appendChild(opt)
+
+                            p = p + 1
+                        }
+                    }
+
+                }
+            })
+        }
+
+        async function votar() {
+            let myModal = document.querySelector('#btnModal')
+            let profSelect = sel.options[select.selectedIndex].text;
+            let nome = document.querySelector('#NOME_ALUNO')
+            let ra = document.querySelector('#RA_ALUNO')
+            let data = {
+                nomeAluno: nome.value,
+                raAluno: ra.value,
+                curso: radioSelect.value,
+                votoProf: profSelect
+            }
+
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("POST", "/jacad" + `?nomeAluno=${data.nomeAluno}&raAluno=${data.raAluno}&curso=${data.curso}&votoProf=${data.votoProf}`, true); // false for synchronous request
+            xmlHttp.setRequestHeader("Content-Type", "application/json");
+            xmlHttp.send();
+
+            console.log(xmlHttp)
+
+            if (xmlHttp.status == 200) {
+                myModal.click()
+            }
+
+
+            return xmlHttp.responseText;
+
+        }
+    </script>
+
+</body>
+
+</html>
