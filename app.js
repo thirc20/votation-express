@@ -1,6 +1,6 @@
 const express = require('express')
 const { JacadService, teste, findStudent } = require('./src/jacad/jacad');
-const { voto } = require('./src/voto/voto');
+const { voto, novoVoto } = require('./src/voto/voto');
 const app = express()
 const port = process.env.PORT || 3000
 const db = require('./db')
@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/jacad', (req, res)=>{
-    let retu = findStudent(req.query)
+    let retu = novoVoto(req.query)
     console.log(retu)
     return retu
 })

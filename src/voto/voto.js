@@ -40,7 +40,7 @@ async function findOne(nome){
     }
 }
 
-async function novoVoto(voto){
+module.exports.novoVoto = async (voto) => {
     let votoSalvo = await db.votar(voto)
 
     return {

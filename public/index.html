@@ -173,7 +173,7 @@
             }
 
             var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("POST", "/jacad" + `?nomeAluno=${data.nomeAluno}&raAluno=${data.raAluno}&curso=${data.curso}&votoProf=${data.votoProf}`, true); // false for synchronous request
+            xmlHttp.open("POST", "/voto" + `?nomeAluno=${data.nomeAluno}&raAluno=${data.raAluno}&curso=${data.curso}&votoProf=${data.votoProf}`, true); // false for synchronous request
             xmlHttp.setRequestHeader("Content-Type", "application/json");
             xmlHttp.send();
 
