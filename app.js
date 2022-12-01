@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
     return res.render('index.hmtl')
 })
 
-app.post('/jacad', (req, res)=>{
+app.post('/voto', (req, res)=>{
     let retu = novoVoto(req.query)
     console.log(retu)
     return retu
