@@ -27,6 +27,7 @@ async function selectOne(infor) {
     
     const [rows] = await conn.query("SELECT * FROM voto_entity WHERE nomeAluno =" + `'${infor.nomeAluno}'` + " and raAluno = " + `'${infor.raAluno}'` + ";")
     conn.end()
+    console.log(rows)
     return await rows
 }
 
